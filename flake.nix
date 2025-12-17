@@ -12,6 +12,8 @@
         pkgs = nixpkgs.legacyPackages.${system};
       in
       {
+        packages.mcp-server-git = import ./src/git { inherit pkgs; };
+
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
             nodejs_22
